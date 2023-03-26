@@ -1,0 +1,28 @@
+Sixth video:
+#How do you find outif the code is true or false....!? 
+   use $? if the output of ($?) equals 0, the code is true but if the output of ($?) is not equal 0, the code is false.
+Seventh video:
+#While....!^
+Example:
+       var=1
+       while [ $var-le 10 ]
+       do
+           echo $var
+           var= $(( $var + 1 ))
+           sleep 0.5
+       done
+ (A variable equal to 1 was created, then using the while rule,
+ the count starts until we reach less than 10 or 10, and when it reaches 11, it exits the loop.)
+The ninth video:
+#For (The same as the while rule, but it differs from it, as it works on each element.)
+Example:
+       for n in { 1..10 }
+       do
+           echo $n
+           sleep 0.5
+       done
+Tenth video:
+#Make the code more useful.
+First, move the code file, for example, to /usr/local/bin
+Example:
+       sudo mv /usr/local/bin/+name of file .

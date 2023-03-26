@@ -1,0 +1,32 @@
+The first video:
+#Create a file and execute commands inside it......!
+   You can create a file, write commands in it and execute them.
+Steps:
+      1) Nano +name of file (to write any commands in a file).
+      2) Sudo chmod +x +name of file (to give powers to the file to execute commands).
+      3)./ +name of file (To call the commands written in the file and execute them).
+Note/-Commands are executed in order.
+The Second video:
+#Writing a variable and calling it....!
+    When calling the file, the $ sign must be used.
+
+Exaple:
+      myname="Ahmed"
+      echo "$myname"  (Ahmed will be printed, but without using the $ sign, it will be printed myname).
+The third video:
+#Mathematical operations.......!
+Examples:
+      expr 100 + 50
+      expr 100 \* 2=200
+      expr 100 / 2=50
+Fourth video:
+#IF.....!
+       Some abbreviations:..\/
+       -eq (equal).   -nq (not equal).    -gt (great than).    -f   (file).    -d (directory).
+Examples: 
+         if [ num -eq 100 ]                         .  if [ -f ~/myfile]
+         then                                       .  then
+             echo "the num is exist."               .      echo "the file is exist."
+         else                                       .  fi
+             echo "the num is not exist."           .
+         fi
