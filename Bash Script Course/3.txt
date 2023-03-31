@@ -1,0 +1,94 @@
+Eighth video:
+#Stages of development of the global update code......!
+#!/bin/bash
+release=/etc/os-release
+if grep -q "Arch" $release
+then
+    #The host is based on Arch, run the pacman update command
+    sudo pacman -syu
+fi
+if grep -q "pop" $release || grep -q "Ubunto" $release
+then
+    #The host is based on Ubunto, run the apt version of the command
+    sudo apt update
+    sudo apt dist-upgrade
+fi
+if grep -q "centos" $release
+then
+    #The host is based on centOS, run the yum version of the command    
+    sudo yum update
+fi
+......................     ................................    .................................
+Eleventh video:
+#Make standard output (update) in one file and standard errors in another file..!
+#!/bin/bash
+release=/etc/os-release
+logfile=/var/log/updater
+errorfile=/var/log/updater-error
+if grep -q "Arch" $release
+then
+    #The host is based on Arch, run the pacman update command
+    sudo pacman -syu 1>>$logfile 2>>$errorfile
+    if [ $? -ne 0 ]
+    then
+        echo "An error occured, please check the $errorfile."
+    fi
+fi
+if grep -q "pop" $release || grep -q "Ubunto" $release
+then
+    #The host is based on Ubunto, run the apt version of the command
+    sudo apt update 1>>$logfile 2>>$errorfile 
+    if [ $? -ne 0 ]
+    then
+        echo "An error occured, please check the $errorfile."
+    fi
+    sudo apt dist-upgrade 1>>$logfile 2>>$errorfile
+    if [ $? -ne 0 ]
+    then
+        echo "An error occured, please check the $errorfile."
+    fi
+fi
+if grep -q "centos" $release
+then
+    #The host is based on centOS, run the yum version of the command    
+    sudo yum update 1>>$logfile 2>>$errorfile
+    if [ $? -ne 0 ]
+    then
+        echo "An error occured, please check the $errorfile."
+    fi
+fi
+Twelfth video:
+#A repeated command can be reduced to a single command, as is the case in the repeated if in the three cases....!
+#!/bin/bash
+release=/etc/os-release
+logfile=/var/log/updater
+errorfile=/var/log/updater-error
+check() {
+    if [ $? -ne 0 ]
+    then
+        echo "An error occured, please check the $errorfile."
+    fi
+}
+if grep -q "Arch" $release
+then
+    #The host is based on Arch, run the pacman update command
+    sudo pacman -syu 1>>$logfile 2>>$errorfile
+    check
+fi
+if grep -q "pop" $release || grep -q "Ubunto" $release
+then
+    #The host is based on Ubunto, run the apt version of the command
+    sudo apt update 1>>$logfile 2>>$errorfile
+    check
+    sudo apt dist-upgrade 1>>$logfile 2>>$errorfile
+    check
+fi
+if grep -q "centos" $release
+then
+    #The host is based on centOS, run the yum version of the command    
+    sudo yum update 1>>$logfile 2>>$errorfile
+    check
+fi
+
+
+    

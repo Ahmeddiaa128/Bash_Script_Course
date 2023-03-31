@@ -1,0 +1,26 @@
+Thirteenth video:                            .
+#Case statement in bash script.....          .   #While Loop.....!
+Example:                                     .   finished=0
+#!/bin/bash                                  .   while [ $finished -ne 1 ]
+echo "which university do you study in.?"    .   do
+echo "1 - Mansoura"                          .       echo "which university do you study in.?"                     
+echo "2 - Cairo"                             .       echo "1 - Mansoura" 
+echo "3 - Ain Shams"                         .       echo "2 - Cairo"
+read Choice;                                 .       echo "3 - Ain Shams"
+                                             .       echo "4 - Get out"
+case $choice in                              .       read choice;
+    1) echo "Mansoura";;                     .       case $choice in
+    2) echo "Cairo";;                        .           1) echo "Mansoura";; 
+    3) echo "Ain Shams";;                    .           2) echo "Cairo";;
+    *) echo "I do not understand you"        .           3) echo "Ain Shams";;
+esac                                         .           4) finished=1 ;;
+                                             .           *) echo "I do not understand you"
+                                             .        esac
+                                             .  done
+..............................         .................................      .......................................
+Fouteenth video:
+#Scheduling Jobs (Part 1) .....(at)
+at +(date) +(job)     example at 15:45 ./anyscript
+atrm +(num of atq)  (In order to delete the schedule of a job that you did)
+..............................         .................................      ........................................
+ 
